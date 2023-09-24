@@ -1,12 +1,13 @@
 export const requirements = {
   "resources": {
-    "js": [
+    "jsResources": [
       
     ]
   }
 }
 
 
-export function init($) {
 
+export function init($) {
+alert(1)
 }
