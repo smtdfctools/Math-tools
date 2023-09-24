@@ -1,22 +1,23 @@
 {
   "info":{
-    "name":"Math tools"
+    "name":"Math tools",
+    "link":"Math-tools"
   },
   "tools":[
     {
       "name":"Simplify expressions",
       "tag":"Math tools",
-      "path":"/simplify_expr"
+      "key":"simplify_expr"
     },
     {
       "name": "Calculate the derivative",
       "tag": "Math tools",
-      "path": "/derivative"
+      "key": "derivative"
     },
     {
       "name":"Draw graph",
       "tag":"Math tools",
-      "path":"/graph"
+      "key":"graph"
     }
   ]
 }
