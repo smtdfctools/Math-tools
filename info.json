@@ -1,0 +1,22 @@
+{
+  "info":{
+    "name":"Math tools"
+  },
+  "tools":[
+    {
+      "name":"Simplify expressions",
+      "tag":"Math tools",
+      "path":"/simplify_expr"
+    },
+    {
+      "name": "Calculate the derivative",
+      "tag": "Math tools",
+      "path": "/derivative"
+    },
+    {
+      "name":"Draw graph",
+      "tag":"Math tools",
+      "path":"/graph"
+    }
+  ]
+}
