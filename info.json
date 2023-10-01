@@ -1,23 +1,28 @@
 {
-  "info":{
-    "name":"Math tools",
-    "key":"math-tools"
+  "info": {
+    "name": "Math tools",
+    "key": "math-tools"
   },
-  "tools":[
+  "tools": [
     {
-      "name":"Simplify expressions",
-      "tag":"Math tools",
-      "key":"simplify_expr"
+      "name": "Simplify expressions",
+      "tag": "Math tools",
+      "key": "simplify_expr",
+      "link": "https://smtdfctools.github.io/Math-tools/tools/simplify_expr"
     },
     {
       "name": "Calculate the derivative",
       "tag": "Math tools",
-      "key": "derivative"
+      "key": "derivative",
+      "link": "https://smtdfctools.github.io/Math-tools/tools/derivative"
+
     },
     {
-      "name":"Draw graph",
-      "tag":"Math tools",
-      "key":"graph"
+      "name": "Draw graph",
+      "tag": "Math tools",
+      "key": "graph",
+      "link": "https://smtdfctools.github.io/Math-tools/tools/graph"
+
     }
   ]
 }
