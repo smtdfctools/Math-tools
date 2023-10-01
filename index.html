@@ -5,17 +5,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>smtdfc tools</title>
+  <title>Test</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
   <script src="https://smtdfctools.github.io/src/libraries/turtle/turtle.min.js"></script>
   <script src="https://smtdfctools.github.io/src/libraries/axios/axios.min.js"></script>
   <script src="https://smtdfctools.github.io/assets/static/scripts/components.js"></script>
 </head>
 
 <body>
-  <div class="d-none pos-absolute line-loader loader-md loader-info" style="top:0; z-index:10000;" id="main-loader">
-    <span></span>
+  <style>
+    .progress {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    .progress,
+    .progressBar {
+      width: 100vw;
+      height: 5;
+      border-radius: 0;
+      margin: auto;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .progressBar {
+      background-color: green;
+      animation: backp 3s;
+      margin: 0;
+      padding: 0;
+      width: 0%;
+      height: 5px;
+      box-shadow: none;
+      transition: 0.2s all;
+    }
+  </style>
+  <div class="fade ">
+    <tool-nav title="Math Tools"></tool-nav>
   </div>
-  <tool-nav title="math tool"></tool-nav>
+  <div class="main-container" style="margin-top: 80px;" id="container">
+    <div class="progress">
+      <div class="progressBar" id="progressbar">
+        <span></span>
+      </div>
+    </div>
+    <tool-contents></tool-contents>
+  </div>
+
+
+  </div>
   <script src="https://smtdfctools.github.io/src/libraries/turtleui/turtleui.min.js"></script>
   <script src="./scripts/app.js"></script>
 </body>
