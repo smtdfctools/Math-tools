@@ -15,14 +15,12 @@
       "tag": "Math tools",
       "key": "derivative",
       "link": "https://smtdfctools.github.io/Math-tools/tools/derivative"
-
     },
     {
       "name": "Draw graph",
       "tag": "Math tools",
       "key": "graph",
       "link": "https://smtdfctools.github.io/Math-tools/tools/graph"
-
     }
   ]
 }
