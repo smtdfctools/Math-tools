@@ -5,10 +5,10 @@
   },
   "tools": [
     {
-      "name": "Simplify expressions",
+      "name": "Calculate expressions",
       "tag": "Math tools",
-      "key": "simplify_expr",
-      "link": "https://smtdfctools.github.io/Math-tools/tools/simplify_expr"
+      "key": "calc_expr",
+      "link": "https://smtdfctools.github.io/Math-tools/tools/calc_expr"
     },
     {
       "name": "Calculate the derivative",
