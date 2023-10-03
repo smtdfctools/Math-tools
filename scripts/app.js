@@ -32,7 +32,7 @@ async function init(key) {
     }, 1500)
     setTimeout(() => {
       addScript(
-        `../tools/${key}/main.js`,
+        `./tools/${key}/main.js`,
         function() {
           onError()
         }
