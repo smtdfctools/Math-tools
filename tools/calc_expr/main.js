@@ -107,9 +107,9 @@ Turtle.component("tool-contents", function($) {
         <i>Type expression to start</i>
       </div>
     </div>
-    <div class="bg-white shadow p-2 pos-fixed d-flex justify-content-sb" style="width:100vw;bottom:0;left:0;">
-      <input class="form-input " style="width:90vw;" placeholder="Input expression ..." autofocus="true" ${Turtle.ref("exprInput")}>
-      <button class="mr-3 btn btn-outline-info border-none material-symbols-outlined" ${Turtle.events({click:$. onCalcButtonClick})} >
+    <div class="form-group bg-white shadow p-2 pos-fixed d-flex justify-content-sb" style="width:100vw;bottom:0;left:0;">
+      <input class="form-input p-3" style="width:90vw;" placeholder="Input expression ..." autofocus="true" ${Turtle.ref("exprInput")}>
+      <button class="m-0 ml-3 mr-3  btn btn-primary material-symbols-outlined" ${Turtle.events({click:$. onCalcButtonClick})} >
          equal
       </button>
     </div>
