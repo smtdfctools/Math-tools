@@ -1,16 +1,17 @@
+const expression = getParameterByName("expr")
 const mj = function(tex) {
   return MathJax.tex2svg(tex, { em: 16, ex: 6, display: false });
 }
 
 var originalDivide = math.divide;
 math.import({
-  divide: function (a, b) {
+  divide: function(a, b) {
     if (math.isZero(b)) {
       throw new Error('Divide by zero');
     }
     return originalDivide(a, b);
   }
-}, {override: true})
+}, { override: true })
 
 
 function displayMathFormula(node, element) {
@@ -25,9 +26,9 @@ function displayMathFormula(node, element) {
   }
 }
 
-function parseExpr(expr){
+function parseExpr(expr) {
   let node = null
-  
+
   try {
     node = math.parse(expr)
     return node
@@ -42,12 +43,12 @@ function calc(expr) {
   let node = null
 
   try {
-    node = math.parse(expr,{implicit:'hide'})
+    node = math.parse(expr, { implicit: 'hide' })
     node = math.simplify(node)
     return node
   }
   catch (err) {
-    
+
     return err
   }
 }
@@ -55,61 +56,77 @@ function calc(expr) {
 Turtle.component("math-expr-block", function($) {
   let expr = $.props.expr
   $.onRender = function() {
+
     displayMathFormula(
       parseExpr(expr),
-      $.refs.expr
+      $.refs.expr.HTMLElement
     )
+
     let result = calc(expr)
-    if(result instanceof Error){
-      $.refs.result.innerHTML =`
+    if (result instanceof Error) {
+      $.refs.result.innerHTML = `
         <span class="color-danger">${result.message}</span>
       `
       return
     }
-      
     displayMathFormula(
       result,
-      $.refs.result
+      $.refs.result.HTMLElement
     )
   }
 
+  $.shareBtnClick = function() {
+    
+  }
+
   return `
-  <div class="mt-3 p-3 shadow" style="max-width:100vw; overflow-x:scroll;" >
-    <div>
+  <div class="mt-3 p-3 shadow"  style="max-width:90vw;" >
+    <div style="max-width:90vw; overflow-x:scroll;">
       <span class="" ${Turtle.ref("expr")}></span>
       <br><br>
       = <span class="m-4" ${Turtle.ref("result")}></span>
+    </div>
+    <div class="d-flex align-items-center justify-content-end" >
+      <button class="m-0 btn btn-sm btn-icon material-symbols-outlined" ${Turtle.events({click:$.shareBtnClick})}>share</button>
     </div>
   </div>
   `
 })
 
 Turtle.component("tool-contents", function($) {
-  $.onRender = function(){
+  $.onRender = function() {
     $.refs.exprInput.autofocus = true
+  }
+
+  $.addExprBlock = function(expr) {
+    let exprBlock = document.createElement("math-expr-block")
+    if (!expr) return
+    document.querySelector("#b").classList.replace("d-grid", "d-none")
+    exprBlock.props.expr = expr
+    $.refs.list.addChild(exprBlock)
+    exprBlock.scrollIntoView({ behavior: 'smooth' })
+  }
+  
+  $.onRender = function(){
+    if(expression) $.addExprBlock(expression)
   }
   
   $.onCalcButtonClick = function() {
-    let exprBlock = document.createElement("math-expr-block")
-    let expr = $.refs.exprInput.value
-    if(!expr) return
-    document.querySelector("#b").classList.replace("d-grid","d-none")
-    exprBlock.props.expr = expr
-    $.refs.list.appendChild(exprBlock)
-    exprBlock.scrollIntoView({behavior: 'smooth'})
-   // window.scrollTo(0, document.documentElement.scrollHeight);
+    $.addExprBlock($.refs.exprInput.val)
+    // window.scrollTo(0, document.documentElement.scrollHeight);
   }
 
   return `
-    <h3>Simplify expression</h3>
+    <tool-nav></tool-nav>
+    <h3>Calculate expression</h3>
     <div style="margin-bottom:20rem"  ${Turtle.ref("list")}>
       <div id="b" class="d-grid" style="height:100vh;place-content:center">
         <i>Type expression to start</i>
       </div>
     </div>
-    <div class="form-group bg-white shadow p-2 pos-fixed d-flex justify-content-sb" style="width:100vw;bottom:0;left:0;">
-      <input class="form-input p-3" style="width:90vw;" placeholder="Input expression ..." autofocus="true" ${Turtle.ref("exprInput")}>
-      <button class="m-0 ml-3 mr-3  btn btn-primary material-symbols-outlined" ${Turtle.events({click:$. onCalcButtonClick})} >
+    <div class=" bg-white shadow p-2 pos-fixed d-flex " style="width:100vw;bottom:0; left:0;">
+      <input class="form-input" style="width:90vw;" placeholder="Input expression ..." autofocus="true" ${Turtle.ref("exprInput")}>
+      <button class="mx-3 my-0 btn btn-primary material-symbols-outlined" ${Turtle.events({click:$. onCalcButtonClick})} >
          equal
       </button>
     </div>

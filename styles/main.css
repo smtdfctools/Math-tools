@@ -1,0 +1,33 @@
+html{
+    font-size: 16px;
+  }
+    .progress {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    .progress,
+    .progressBar {
+      width: 100vw;
+      height: 5;
+      border-radius: 0;
+      margin: auto;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .progressBar {
+      background-color: green;
+      animation: backp 3s;
+      margin: 0;
+      padding: 0;
+      width: 0%;
+      height: 5px;
+      box-shadow: none;
+      transition: 0.2s all;
+    }
+
+    .navbar {
+      z-index: 99999;
+    }
