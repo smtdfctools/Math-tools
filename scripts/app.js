@@ -59,4 +59,7 @@ if (!name) {
 
 } else {
   init(name)
+    .catch((err)=>{
+      console.log(err);
+    })
 }
