@@ -1,5 +1,4 @@
-import { load } from "../../scripts/base.js"
-const requirements = {
+export const requirements = {
   "requirements": {
     "resources": {
       "js": [
@@ -11,4 +10,3 @@ const requirements = {
   }
 }
 
-load(requirements)

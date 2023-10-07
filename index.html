@@ -5,24 +5,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Test</title>
-  <link rel="stylesheet" href="../../styles/main.css">
+  <title>Math tools </title>
+  <link rel="stylesheet" href="../styles/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
 
 <body>
-    <div class="main-container" style="margin-top: 80px;" id="container">
-    <div class="progress">
-      <div class="progressBar" id="progressbar">
-        <span></span>
-      </div>
+  <div class="progress">
+    <div class="progressBar" id="progressbar">
+      <span>loading</span>
     </div>
+  </div>
+
+  <div class="main-container" style="margin-top: 80px;" id="container">
     <tool-contents></tool-contents>
   </div>
+  
   <script src="https://smtdfctools.github.io/src/libraries/turtle/turtle.min.js"></script>
   <script src="https://smtdfctools.github.io/src/libraries/turtleui/turtleui.min.js"></script>
   <script src="https://smtdfctools.github.io/assets/scripts/base.js"></script>
-  <script type="module" src="./init.js"></script>
+  <script src="./scripts/app.js"></script>
 </body>
 
 </html>

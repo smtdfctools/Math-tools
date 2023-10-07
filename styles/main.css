@@ -1,33 +1,60 @@
-html{
-    font-size: 16px;
-  }
-    .progress {
-      width: 100%;
-      position: fixed;
-      top: 0;
-      left: 0;
-    }
+html {
+  font-size: 16px;
+}
 
-    .progress,
-    .progressBar {
-      width: 100vw;
-      height: 5;
-      border-radius: 0;
-      margin: auto;
-      background-color: rgba(0, 0, 0, 0.1);
-    }
+.progress {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
 
-    .progressBar {
-      background-color: green;
-      animation: backp 3s;
-      margin: 0;
-      padding: 0;
-      width: 0%;
-      height: 5px;
-      box-shadow: none;
-      transition: 0.2s all;
-    }
+.progress,
+.progressBar {
+  width: 100vw;
+  height: 5;
+  border-radius: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.1);
+}
 
-    .navbar {
-      z-index: 99999;
-    }
+.progressBar {
+  background-color: var(--primary-color-subtle);
+  animation: backp 3s;
+  margin: 0;
+  padding: 0;
+  width: 0%;
+  height: 20px;
+  box-shadow: none;
+  transition: 0.2s all;
+}
+
+.MathJax {
+  font-size: 1.3em;
+}
+
+.navbar {
+  z-index: 1005;
+}
+
+.fadeInUp{
+  -webkit-animation-name: fadeInUp;
+  -moz-animation-name: fadeInUp;
+  -o-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  -o-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  -moz-animation-name: fadeInDown;
+  -o-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  -o-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+}

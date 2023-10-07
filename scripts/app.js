@@ -1,4 +1,5 @@
 function onError() {
+  
   document.getElementById("container").innerHTML = `
     <div class="text-align-center">
       <h1> Error ! </h1>
@@ -17,8 +18,9 @@ function onError() {
 
 async function init(key) {
   let c = await import(`../tools/${key}/init.js`)
-  let process = await loadToolResources(c)
+  let process = await loadToolResources(c.requirements)
   process.onStatusChange = function(p) {
+    document.querySelector("#progressbar>span").textContent = `${Math.round(process.precent)}%`
     document.getElementById("progressbar").style.width = `${process.precent}%`
   }
 
@@ -31,19 +33,21 @@ async function init(key) {
       document.getElementById("progressbar").remove()
     }, 1500)
     setTimeout(() => {
-      addScript(
-        `./tools/${key}/main.js`,
-        function() {
-          onError()
-        }
-      )
-    })
+      addToolScript(key)
+    },1000)
   }
+  
   process.start()
-
 }
 
-let name = getParameterByName("name")
+function addToolScript(k){
+  let script = document.createElement("script")
+  script.src = `${window.dev?".":""}./tools/${k}/main.js`
+  document.body.appendChild(script)
+}
+
+let name = getParameterByName("name") || window.dev
+
 if (!name) {
   document.querySelector(".overlay").innerHTML = `
     <div class="d-grid" style="place-content:center">

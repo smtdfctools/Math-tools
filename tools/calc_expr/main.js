@@ -39,9 +39,7 @@ function parseExpr(expr) {
 }
 
 function calc(expr) {
-
   let node = null
-
   try {
     node = math.parse(expr, { implicit: 'hide' })
     node = math.simplify(node)
@@ -52,6 +50,7 @@ function calc(expr) {
     return err
   }
 }
+
 
 Turtle.component("math-expr-block", function($) {
   let expr = $.props.expr
@@ -76,11 +75,11 @@ Turtle.component("math-expr-block", function($) {
   }
 
   $.shareBtnClick = function() {
-    
+    showShareModal("jdjs")
   }
 
   return `
-  <div class="mt-3 p-3 shadow"  style="max-width:90vw;" >
+  <div class="mt-3 p-3 shadow"  style="max-width:99vw;" >
     <div style="max-width:90vw; overflow-x:scroll;">
       <span class="" ${Turtle.ref("expr")}></span>
       <br><br>
@@ -117,14 +116,14 @@ Turtle.component("tool-contents", function($) {
   }
 
   return `
-    <tool-nav></tool-nav>
+  <tool-nav></tool-nav>
     <h3>Calculate expression</h3>
     <div style="margin-bottom:20rem"  ${Turtle.ref("list")}>
-      <div id="b" class="d-grid" style="height:100vh;place-content:center">
+      <div id="b" class="d-grid" style="place-content:center">
         <i>Type expression to start</i>
       </div>
     </div>
-    <div class=" bg-white shadow p-2 pos-fixed d-flex " style="width:100vw;bottom:0; left:0;">
+    <div class="fadeInUp bg-white shadow p-2 pos-fixed d-flex " style="width:100vw;bottom:0; left:0;">
       <input class="form-input" style="width:90vw;" placeholder="Input expression ..." autofocus="true" ${Turtle.ref("exprInput")}>
       <button class="mx-3 my-0 btn btn-primary material-symbols-outlined" ${Turtle.events({click:$. onCalcButtonClick})} >
          equal
