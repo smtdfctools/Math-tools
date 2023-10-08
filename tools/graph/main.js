@@ -52,11 +52,18 @@ function calc(expr) {
 }
 
 Turtle.component("tool-contents", function($) {
+  let currentExpr = expression 
+  
   $.onRender = function() {
-    
+    currentExpr ? $.onDrawBtnClick() : ""
+  }
+  
+  $.shareBtnClick = function(){
+    showShareModal(encodeURI(`https://smtdfctools.github.io/Math-tools/index.html?name=graph&expr=${currentExpr}`))
   }
   
   $.onDrawBtnClick = function(){
+    currentExpr = $.refs.expr.val
     functionPlot({
       target: '#graph',
       disableZoom: false,
@@ -82,14 +89,12 @@ Turtle.component("tool-contents", function($) {
       </div>
       <button class="btn btn-primary btn-sm" ${Turtle.events({click:$.onDrawBtnClick})}>Draw</button>
     </div>
-    
-    <div class="mt-5 bg-white shadow p-3">
-      <h3>Graph</h3>
-       <div id="graph" style="max-width:90vw; overflow-x:scroll;"></div>
+    <div class="mt-5 bg-white shadow  ">
+      <h3 class="p-3">Graph</h3>
+      <div id="graph" style="max-width:99vw; overflow-x:scroll;"></div>
        <div class="d-flex align-items-center justify-content-end">
-        <button class="m-0 btn btn-sm btn-icon material-symbols-outlined" ${Turtle.events({click:$.shareBtnClick})}>share</button>
+        <button class="m-3 btn btn-sm btn-icon material-symbols-outlined" ${Turtle.events({click:$.shareBtnClick})}>share</button>
       </div>
     </div>
-
   `
 })

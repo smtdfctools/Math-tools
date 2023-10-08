@@ -75,7 +75,7 @@ Turtle.component("math-expr-block", function($) {
   }
 
   $.shareBtnClick = function() {
-    showShareModal(`https://smtdfctools.github.io/Math-tools/index.html?name=calc_expr&expr=${expr}`)
+    showShareModal(encodeURI(`https://smtdfctools.github.io/Math-tools/index.html?name=calc_expr&expr=${expr}`))
   }
 
   return `

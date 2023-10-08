@@ -71,7 +71,7 @@ Turtle.component("tool-contents", function($) {
   }
 
   $.shareBtnClick = function() {
-    showShareModal(`https://smtdfctools.github.io/Math-tools/index.html?name=derivative&expr=${currentExpr}`)
+    showShareModal(encodeURI(`https://smtdfctools.github.io/Math-tools/index.html?name=derivative&expr=${currentExpr}`))
   }
 
   return `
