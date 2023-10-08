@@ -52,31 +52,43 @@ function calc(expr) {
 }
 
 Turtle.component("tool-contents", function($) {
-  let currentExpr = expression 
-  
+  let currentExpr = expression
+
   $.onRender = function() {
-    currentExpr ? $.onDrawBtnClick() : ""
+
+    if (currentExpr) {
+      functionPlot({
+        target: '#graph',
+        disableZoom: false,
+        data: [{
+          fn: $.refs.expr.val,
+          sampler: 'builtIn',
+          graphType: 'polyline'
+            }]
+      })
+    }
+
   }
-  
-  $.shareBtnClick = function(){
+
+  $.shareBtnClick = function() {
     showShareModal(encodeURI(`https://smtdfctools.github.io/Math-tools/index.html?name=graph&expr=${currentExpr}`))
   }
-  
-  $.onDrawBtnClick = function(){
+
+  $.onDrawBtnClick = function() {
     currentExpr = $.refs.expr.val
     functionPlot({
       target: '#graph',
       disableZoom: false,
-      
+
       data: [{
-        
+
         fn: $.refs.expr.val,
         sampler: 'builtIn',
         graphType: 'polyline'
       }]
     })
   }
-  
+
 
   return `
     <tool-nav></tool-nav>
